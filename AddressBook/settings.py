@@ -80,10 +80,14 @@ WSGI_APPLICATION = 'AddressBook.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
     }
 }
+
+DATABASES['default'] = dj_database_url.config(default='postgres://fmxdiowdfumldj:91f9d67aa4d14d41f11d84fa660585a37b4a41baa35f5f8f16bd31ff85025e98@ec2-50-19-114-27.compute-1.amazonaws.com:5432/d7f9d2llsck7dr')
+
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
