@@ -2,6 +2,28 @@
 
 {% block content %}
 <div class="container">
-  <p>  home</p>
+{% if all_addresses %}
+  <div class="card-columns">
+    {% for address in all_addresses %}
+
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">{{ address.name }} </h5>
+      </div>
+
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">📧 {{ address.email }} </li>
+          <li class="list-group-item">📞 {{ address.phone }}</li>
+          <li class="list-group-item">📮 {{ address.address }}  {{ address.city }}  {{ address.zipcode }} </li>
+        </ul>
+
+
+      <div class="card-footer">
+        <a href="{% url 'delete_address' address.id %}" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></a>
+        <a href="{% url 'edit_address' address.id %}" class="btn btn-outline-secondary float-right"><i class="fas fa-user-edit"></i></a>
+      </div>
+      </div>
+      {% endfor %}
 </div>
+{% endif %}
 {% endblock content %}

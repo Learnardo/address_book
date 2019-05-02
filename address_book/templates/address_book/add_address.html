@@ -2,7 +2,37 @@
 
 {% block content %}
 <div class="container">
-  <p>  add address</p>
+  <form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="exampleInputEmail1">Name</label>
+      <input name="name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Phone number</label>
+      <input name="phone" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Phone">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Postal Address</label>
+      <input name="address" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Address">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">City</label>
+      <input name="city" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Coty">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Zipcode</label>
+      <input name="zipcode" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Zipcode">
+    </div>
+
+    <div class="form-group form-check">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
 </div>
 
 {% endblock content %}
